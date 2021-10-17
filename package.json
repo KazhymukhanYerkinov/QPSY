@@ -9,6 +9,7 @@
     "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "date-fns": "^2.25.0",
     "next": "11.1.2",
     "react": "17.0.2",
