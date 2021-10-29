@@ -11,9 +11,6 @@ function Home({ menu, firstCategory }: HomeProps): JSX.Element {
 
   const [ rating, setRating ] = React.useState(4);
 
-  console.log(menu);
-  console.log(firstCategory);
-
   return (
     <React.Fragment>
       <Htag tag = 'h1'> Текст </Htag>

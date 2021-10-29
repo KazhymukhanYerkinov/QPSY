@@ -5,6 +5,7 @@ import { Footer } from './Footer/Footer';
 
 import { LayoutProps } from './Layout.props';
 import styles from './Layout.module.css';
+import { AppContextProvider, IAppContext } from '../context/app.context';
 
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
@@ -20,12 +21,14 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown>>(Component: React.FunctionComponent<T>) => {
+export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: React.FunctionComponent<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <AppContextProvider menu = {props.menu} firstCategory = {props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AppContextProvider>
     );
   };
 };
